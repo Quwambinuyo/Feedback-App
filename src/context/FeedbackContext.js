@@ -13,22 +13,37 @@ export const FeedbackProvider = ({ children }) => {
     {
       id: 2,
       text: "This is feedback item 2",
-      rating: 10,
+      rating: 9,
     },
     {
       id: 3,
       text: "This is feedback item 3",
-      rating: 10,
+      rating: 8,
     },
   ]);
 
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false,
+  });
+
+  // Add feedback reviews
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuid();
     setFeedback([...feedback, newFeedback]);
   };
 
+  // Delete feedback reviews
   const deleteFeedback = (id) => {
     setFeedback(feedback.filter((item) => item.id !== id));
+  };
+
+  // Set feedback item to be updated
+  const editFeedback = (item) => {
+    setFeedbackEdit({
+      item: item,
+      edit: true,
+    });
   };
 
   return (
@@ -37,6 +52,7 @@ export const FeedbackProvider = ({ children }) => {
         feedback: feedback,
         deleteFeedback: deleteFeedback,
         addFeedback: addFeedback,
+        editFeedback: editFeedback,
       }}
     >
       {children}
