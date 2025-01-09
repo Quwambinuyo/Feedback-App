@@ -16,9 +16,9 @@
       "text": "This is feedback item 3 coming from the backend"
     },
     {
-      "id": "4797",
-      "text": "This is a new test",
-      "rating": 7
+      "text": "This is a new tests",
+      "rating": 10,
+      "id": "bea3"
     }
   ]
 }
